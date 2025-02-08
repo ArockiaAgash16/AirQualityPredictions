@@ -70,65 +70,10 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 - Visual representation of **how pollutants interact over time with meteorological conditions**.
 - **Key Insight**: **Solar radiation influences NO2 and O3 formation**, indicating photochemical smog formation.
 
-## **📈 LSTM-FCNN Model Architecture**
-### **🔹 LSTM Network (Temporal Analysis)**
-- Learns the long-term trends in **PM2.5 levels**.
-- Maintains memory of previous pollutant fluctuations.
-
-### **🔹 FCNN Network (Spatial Analysis)**
-- Uses **LSTM outputs + neighboring monitoring station data**.
-- Enhances predictions by considering **regional pollution influences**.
-
-### **Mathematical Formulation**
-#### **LSTM Components**
-- **Forget Gate**: Controls irrelevant information.
-- **Input Gate**: Updates pollutant trends.
-- **Cell State Update**: Learns past trends.
-- **Output Gate**: Produces predictions.
-
-\[
-h_t = o_t \odot \tanh(c_t)
-\]
-
-#### **FCNN Formulation**
-\[
-y_t = ReLU(W_2 \cdot ReLU(W_1 \cdot h_t + b_1) + b_2)
-\]
-
-## **⚡ Optimizer Performance Analysis**
-### **Why Optimizer Selection is Crucial**
-The choice of **optimizer** significantly impacts **convergence speed and accuracy**. Multiple optimizers were tested:
-
-| **Optimizer** | **Learning Rate Adaptability** | **Best Use Case** |
-|--------------|------------------------------|-------------------|
-| **Adam**      | Adaptive learning rate      | Balances speed & accuracy |
-| **RMSprop**   | Scales gradient updates     | Works well for time-series |
-| **SGD**       | Fixed learning rate         | Good for simple models |
-| **Adadelta**  | No manual tuning required  | Works well with noisy data |
-| **Adagrad**   | Adapts learning per feature | Best for sparse data |
-| **Adamax**    | Generalization-focused     | Stable training |
-
-### **Final Results: Best Optimizer for LSTM-FCNN**
-| **Model**               | **RMSE**  | **MSE**   | **MAE**  | **MAPE**  |
-|--------------------------|-----------|-----------|-----------|-----------|
-| **LSTM**                 | 28.799    | 829.43    | 18.431    | 48.127    |
-| **FCNN**                 | 27.894    | 786.304   | 17.660    | 46.648    |
-| **LSTM-FCNN (RMSprop)**  | **27.496** | **783.819** | **17.167** | **40.817** |
-
-✅ **RMSprop optimizer yielded the best performance**, minimizing RMSE to **27.496**.  
-✅ **Adam performed well but was slightly slower in convergence**.  
-✅ **SGD struggled due to inconsistent gradient updates in time-series data**.  
-
-## **📌 Future Enhancements**
-📍 **Real-time IoT sensor integration** for live air quality monitoring.  
-📍 **Incorporate Ozone (O3), VOCs, and CO2** for broader air quality forecasting.  
-📍 **Deploy as an API or Web App** for real-time user access.  
-
+## **📈 Prediction**
 # **Why LSTM-FCNN Instead of a Normal Regression Model?**
 
 Air quality prediction is **not a simple regression problem** because pollution levels depend on **both past trends (temporal dependencies) and environmental interactions (non-linear dependencies).** The **LSTM-FCNN hybrid model** is specifically designed to handle these complexities, making it superior to traditional regression models.
-
-## **📌 Why is Air Quality Prediction Different from a Normal Regression Problem?**
 
 ### **1️⃣ Time-Dependency (Temporal Aspect)**
 - **Air pollution fluctuates over time** due to meteorological conditions (temperature, wind, humidity) and external factors (seasonal changes, industrial activity).
@@ -159,6 +104,35 @@ While **LSTM captures temporal patterns**, it **doesn’t model complex feature 
 **Example:**  
 - LSTM predicts that **PM2.5 will be high tomorrow** based on past pollution levels.  
 - FCNN adjusts the prediction by considering **weather conditions**—if strong winds are forecasted, it lowers the PM2.5 estimate because **pollutants will disperse faster.**  
+
+## **⚡ Optimizer Performance Analysis**
+### **Why Optimizer Selection is Crucial**
+The choice of **optimizer** significantly impacts **convergence speed and accuracy**. Multiple optimizers were tested:
+
+| **Optimizer** | **Learning Rate Adaptability** | **Best Use Case** |
+|--------------|------------------------------|-------------------|
+| **Adam**      | Adaptive learning rate      | Balances speed & accuracy |
+| **RMSprop**   | Scales gradient updates     | Works well for time-series |
+| **SGD**       | Fixed learning rate         | Good for simple models |
+| **Adadelta**  | No manual tuning required  | Works well with noisy data |
+| **Adagrad**   | Adapts learning per feature | Best for sparse data |
+| **Adamax**    | Generalization-focused     | Stable training |
+
+### **Final Results: Best Optimizer for LSTM-FCNN**
+| **Model**               | **RMSE**  | **MSE**   | **MAE**  | **MAPE**  |
+|--------------------------|-----------|-----------|-----------|-----------|
+| **LSTM**                 | 28.799    | 829.43    | 18.431    | 48.127    |
+| **FCNN**                 | 27.894    | 786.304   | 17.660    | 46.648    |
+| **LSTM-FCNN (RMSprop)**  | **27.496** | **783.819** | **17.167** | **40.817** |
+
+✅ **RMSprop optimizer yielded the best performance**, minimizing RMSE to **27.496**.  
+✅ **Adam performed well but was slightly slower in convergence**.  
+✅ **SGD struggled due to inconsistent gradient updates in time-series data**.  
+
+## **📌 Future Enhancements**
+📍 **Real-time IoT sensor integration** for live air quality monitoring.  
+📍 **Incorporate Ozone (O3), VOCs, and CO2** for broader air quality forecasting.  
+📍 **Deploy as an API or Web App** for real-time user access.  
 
 ## **📈 Comparison: LSTM-FCNN vs. Normal Regression**
 
