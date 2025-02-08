@@ -45,6 +45,9 @@ These charts represent the **average contribution of pollutants (PM2.5, PM10, NO
 - **Urban zones exhibit higher NO2 and CO levels**, largely attributed to **vehicular emissions**.
 - **Residential zones have comparatively lower pollutant concentrations**, but PM2.5 levels remain a concern.
 
+![image](https://github.com/user-attachments/assets/932750ed-d511-4a8a-a348-71c2d0859e30)
+![image](https://github.com/user-attachments/assets/57b7aff4-de57-4228-82ef-e425ad8ff086)
+![image](https://github.com/user-attachments/assets/de72326a-5719-435d-a8ec-ea7bc7c4e22c)
 ![image](https://github.com/user-attachments/assets/b2b4b2fc-a27e-436b-ad37-12924e049411)
 ![image](https://github.com/user-attachments/assets/e74405f4-3f24-4923-bfb3-57d1282f8f7e)
 ![image](https://github.com/user-attachments/assets/c3bd90ab-7145-4096-8aee-38e997ec1965)
@@ -58,7 +61,9 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 - **Urban areas show seasonal spikes**, especially in winter, due to **low dispersion rates**.
 - **Industrial areas maintain consistently high PM concentrations**, highlighting **ongoing emissions from manufacturing activities**.
 
-![image](https://github.com/user-attachments/assets/05480a48-559e-4b75-90ab-045336908ad2)
+![image](https://github.com/user-attachments/assets/f0175177-53c4-4eb3-9839-fcd4cba4b008)
+![image](https://github.com/user-attachments/assets/640b26e5-63f6-4e74-84ec-cd6ae1e0f713)
+![image](https://github.com/user-attachments/assets/32092bef-0b5e-4e30-af3f-26da586b4ebd)
 
 ### **3️⃣ Relationship Between Meteorological Factors & Pollutants**  
 **Visualization: Heatmaps & Stacked Area Charts**  
@@ -66,6 +71,10 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 #### **Heatmaps: Pollutant-Meteorology Correlation**  
 - Show **correlations between air pollutants and meteorological conditions**.
 - Helps identify how weather conditions influence pollutant dispersion.
+
+![image](https://github.com/user-attachments/assets/6966305c-a0e2-4d80-8956-fdb29092187b)
+![image](https://github.com/user-attachments/assets/d9159e01-4e2a-4b61-bbca-04482a4e4fd0)
+![image](https://github.com/user-attachments/assets/e3c7760f-ef95-4691-9a8d-6cc58571d6e4)
 
 #### **Key Insights:**
 - **Higher temperatures correlate with increased NH3 levels**, possibly due to **volatility of ammonia-based emissions**.
@@ -76,9 +85,12 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 - Visual representation of **how pollutants interact over time with meteorological conditions**.
 - **Key Insight**: **Solar radiation influences NO2 and O3 formation**, indicating photochemical smog formation.
 
-![image](https://github.com/user-attachments/assets/45b85728-c69b-4251-beb1-93cdf7a5debb)
-![image](https://github.com/user-attachments/assets/b772ae86-38db-490f-bee6-8af982c2daaf)
-![image](https://github.com/user-attachments/assets/63afe0ff-b7ac-4263-ace0-662ad6cffe7c)
+![image](https://github.com/user-attachments/assets/681cce2f-feb0-45f1-85bb-830a6d972357)
+![image](https://github.com/user-attachments/assets/1cf0311a-8d69-4522-883b-a818795d9f21)
+![image](https://github.com/user-attachments/assets/a1c11064-36d5-4af2-9fbc-8ee358a9872a)
+![image](https://github.com/user-attachments/assets/0fe6fc7c-22f0-41ad-bdab-30d5f9a7cb20)
+![image](https://github.com/user-attachments/assets/5a4eaf41-e9a3-4c29-85dd-14fad57b3071)
+![image](https://github.com/user-attachments/assets/fec1d463-08f0-44ac-a5b4-3973f31e9cd7)
 
 ## **📈 Prediction**
 The **LSTM-FCNN hybrid model** is an advanced deep learning architecture designed for **air quality prediction**. This model combines two powerful neural network components:  
