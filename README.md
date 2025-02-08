@@ -44,7 +44,7 @@ These charts represent the **average contribution of pollutants (PM2.5, PM10, NO
 - **Industrial zones have higher NH3 and SO2 concentrations**, suggesting emissions from **factories and chemical processing units**.
 - **Urban zones exhibit higher NO2 and CO levels**, largely attributed to **vehicular emissions**.
 - **Residential zones have comparatively lower pollutant concentrations**, but PM2.5 levels remain a concern.
-  
+
 ![image](https://github.com/user-attachments/assets/b2b4b2fc-a27e-436b-ad37-12924e049411)
 ![image](https://github.com/user-attachments/assets/e74405f4-3f24-4923-bfb3-57d1282f8f7e)
 ![image](https://github.com/user-attachments/assets/c3bd90ab-7145-4096-8aee-38e997ec1965)
@@ -57,7 +57,7 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 - **PM levels are steadily rising over the years**, indicating increasing pollution levels.
 - **Urban areas show seasonal spikes**, especially in winter, due to **low dispersion rates**.
 - **Industrial areas maintain consistently high PM concentrations**, highlighting **ongoing emissions from manufacturing activities**.
-  
+
 ![image](https://github.com/user-attachments/assets/05480a48-559e-4b75-90ab-045336908ad2)
 
 ### **3️⃣ Relationship Between Meteorological Factors & Pollutants**  
@@ -75,6 +75,10 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 #### **Stacked Area Charts: Seasonal Pollutant Variations**
 - Visual representation of **how pollutants interact over time with meteorological conditions**.
 - **Key Insight**: **Solar radiation influences NO2 and O3 formation**, indicating photochemical smog formation.
+
+![image](https://github.com/user-attachments/assets/45b85728-c69b-4251-beb1-93cdf7a5debb)
+![image](https://github.com/user-attachments/assets/b772ae86-38db-490f-bee6-8af982c2daaf)
+![image](https://github.com/user-attachments/assets/63afe0ff-b7ac-4263-ace0-662ad6cffe7c)
 
 ## **📈 Prediction**
 The **LSTM-FCNN hybrid model** is an advanced deep learning architecture designed for **air quality prediction**. This model combines two powerful neural network components:  
