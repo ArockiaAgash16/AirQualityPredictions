@@ -71,8 +71,14 @@ These graphs illustrate **yearly trends in PM2.5 and PM10** levels across differ
 - **Key Insight**: **Solar radiation influences NO2 and O3 formation**, indicating photochemical smog formation.
 
 ## **📈 Prediction**
-# **Why LSTM-FCNN Instead of a Normal Regression Model?**
+The **LSTM-FCNN hybrid model** is an advanced deep learning architecture designed for **air quality prediction**. This model combines two powerful neural network components:  
 
+1️⃣ **Long Short-Term Memory (LSTM)** – Captures **temporal dependencies** in pollution data.  
+2️⃣ **Fully Connected Neural Network (FCNN)** – Models **feature interactions** and refines predictions.  
+
+This combination allows for **accurate forecasting of PM2.5 concentrations** by leveraging both **time-series patterns** and **environmental influences**.
+
+# **Why LSTM-FCNN Instead of a Normal Regression Model?**
 Air quality prediction is **not a simple regression problem** because pollution levels depend on **both past trends (temporal dependencies) and environmental interactions (non-linear dependencies).** The **LSTM-FCNN hybrid model** is specifically designed to handle these complexities, making it superior to traditional regression models.
 
 ### **1️⃣ Time-Dependency (Temporal Aspect)**
@@ -105,6 +111,19 @@ While **LSTM captures temporal patterns**, it **doesn’t model complex feature 
 - LSTM predicts that **PM2.5 will be high tomorrow** based on past pollution levels.  
 - FCNN adjusts the prediction by considering **weather conditions**—if strong winds are forecasted, it lowers the PM2.5 estimate because **pollutants will disperse faster.**  
 
+## **📌 LSTM-FCNN Model Architecture**
+The **LSTM-FCNN model** consists of several layers:
+
+1️⃣ **LSTM Network**  
+   - **Input:** Sequence of past PM2.5 values.  
+   - **Hidden state:** Stores learned pollution trends.  
+   - **Output:** Time-dependent pollution forecast.  
+
+2️⃣ **FCNN Layers**  
+   - **Input:** LSTM output + meteorological features.  
+   - **Hidden Layers:** Fully connected layers with **ReLU activation** for feature learning.  
+   - **Output Layer:** Final PM2.5 prediction.  
+
 ## **⚡ Optimizer Performance Analysis**
 ### **Why Optimizer Selection is Crucial**
 The choice of **optimizer** significantly impacts **convergence speed and accuracy**. Multiple optimizers were tested:
@@ -118,12 +137,18 @@ The choice of **optimizer** significantly impacts **convergence speed and accura
 | **Adagrad**   | Adapts learning per feature | Best for sparse data |
 | **Adamax**    | Generalization-focused     | Stable training |
 
+![rmse optimizers](https://github.com/user-attachments/assets/7e4dccdc-b832-4b30-bb74-f3aaa8adad3d)
+
 ### **Final Results: Best Optimizer for LSTM-FCNN**
 | **Model**               | **RMSE**  | **MSE**   | **MAE**  | **MAPE**  |
 |--------------------------|-----------|-----------|-----------|-----------|
 | **LSTM**                 | 28.799    | 829.43    | 18.431    | 48.127    |
 | **FCNN**                 | 27.894    | 786.304   | 17.660    | 46.648    |
 | **LSTM-FCNN (RMSprop)**  | **27.496** | **783.819** | **17.167** | **40.817** |
+
+![acPr](https://github.com/user-attachments/assets/ae16faa1-bb0b-4e42-bf96-2d32fdf469d3)
+
+![model loss](https://github.com/user-attachments/assets/5dbcdec3-d73f-4d30-9237-1a19e46f5f9f)
 
 ✅ **RMSprop optimizer yielded the best performance**, minimizing RMSE to **27.496**.  
 ✅ **Adam performed well but was slightly slower in convergence**.  
