@@ -47,7 +47,7 @@ While **LSTM captures temporal patterns**, it **doesn’t model complex feature 
 | **Adapts to seasonal variations** | ❌ No | ✅ Yes (LSTM captures seasonal changes) |
 | **Handles missing & noisy data** | ❌ No | ✅ Yes (Deep learning models generalize better) |
 
-## **📌 Final Justification: Why LSTM-FCNN is the Best Choice**
+## **📌 Conclusion: Why LSTM-FCNN is the Best Choice**
 1. **Captures both time-series trends (LSTM) and complex feature interactions (FCNN).**  
 2. **Adapts to real-world pollution dynamics, unlike traditional regression models.**  
 3. **Achieves lower RMSE and higher prediction accuracy compared to standalone LSTM or regression models.**  
