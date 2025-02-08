@@ -1,5 +1,128 @@
-# AirQualityPredictions
-Predictive Analysis and Enhanced Prediction for AQI
+# **Predictive Analysis and Enhanced Prediction for AQI**
+
+This repository presents an **advanced air quality prediction system** that utilizes **deep learning techniques** to analyze and forecast **PM2.5 concentrations**. The project is structured around **two key aspects**:  
+
+1️⃣ **Data Visualization**: Understanding the complex relationships between air pollutants and meteorological factors.  
+2️⃣ **Prediction Model**: Implementing a **hybrid LSTM-FCNN model** to enhance air quality forecasting accuracy.  
+
+## **📌 Dataset Selection & Preprocessing**
+### **1️⃣ Dataset Source & Selection Criteria**  
+- Data was collected from the **Central Pollution Control Board (CPCB) (2010-2023)** covering **453 cities** in India.  
+- Focused analysis on **Tamil Nadu**, selecting **26 locations**, classified into:
+  - **Urban zones** – higher vehicle emissions, commercial density.
+  - **Industrial zones** – higher NH3, SO2 emissions from factories.
+  - **Residential zones** – relatively lower pollution levels.
+
+- **Three locations in Chennai** were chosen for in-depth analysis, each representing one of the above zones.
+
+### **2️⃣ Feature Selection**
+The dataset contains **both pollutant concentrations and meteorological parameters**:
+
+#### **Air Pollutants:**
+- **PM2.5, PM10** – Primary indicators of air quality.
+- **NO2, SO2, NH3, CO** – Gaseous pollutants affecting respiratory health.
+
+#### **Meteorological Features:**
+- **Temperature, Humidity, Wind Speed, Solar Radiation, Atmospheric Pressure.**
+
+### **3️⃣ Handling Missing Values**
+- **KNN Imputation** was used for estimating missing values, ensuring dataset consistency.
+
+### **4️⃣ Data Transformation**
+- **Hourly pollutant data aggregated into daily averages**.
+- **Min-Max Scaling** was applied to normalize pollutant concentration values.
+
+## **📊 Data Visualization: Understanding Air Quality Trends**
+Before making predictions, we conducted a thorough **data visualization analysis** to understand **pollution patterns and meteorological influences**.
+
+### **1️⃣ Pollutant Contributions in Different Zones**  
+**Visualization: Pie Charts**  
+These charts represent the **average contribution of pollutants (PM2.5, PM10, NO, NO2, NH3, SO2, CO)** across **urban, industrial, and residential zones**.
+
+#### **Key Insights:**
+- **PM10 and PM2.5 are dominant across all zones**, indicating widespread particulate matter pollution.
+- **Industrial zones have higher NH3 and SO2 concentrations**, suggesting emissions from **factories and chemical processing units**.
+- **Urban zones exhibit higher NO2 and CO levels**, largely attributed to **vehicular emissions**.
+- **Residential zones have comparatively lower pollutant concentrations**, but PM2.5 levels remain a concern.
+
+### **2️⃣ Annual Trends in PM2.5 and PM10 Levels**  
+**Visualization: Line Charts**  
+These graphs illustrate **yearly trends in PM2.5 and PM10** levels across different zones.
+
+#### **Key Insights:**
+- **PM levels are steadily rising over the years**, indicating increasing pollution levels.
+- **Urban areas show seasonal spikes**, especially in winter, due to **low dispersion rates**.
+- **Industrial areas maintain consistently high PM concentrations**, highlighting **ongoing emissions from manufacturing activities**.
+
+### **3️⃣ Relationship Between Meteorological Factors & Pollutants**  
+**Visualization: Heatmaps & Stacked Area Charts**  
+
+#### **Heatmaps: Pollutant-Meteorology Correlation**  
+- Show **correlations between air pollutants and meteorological conditions**.
+- Helps identify how weather conditions influence pollutant dispersion.
+
+#### **Key Insights:**
+- **Higher temperatures correlate with increased NH3 levels**, possibly due to **volatility of ammonia-based emissions**.
+- **Humidity negatively correlates with SO2 and CO**, suggesting moisture contributes to **pollutant absorption**.
+- **Wind speed inversely impacts PM2.5 levels**, indicating **higher wind disperses pollutants more effectively**.
+
+#### **Stacked Area Charts: Seasonal Pollutant Variations**
+- Visual representation of **how pollutants interact over time with meteorological conditions**.
+- **Key Insight**: **Solar radiation influences NO2 and O3 formation**, indicating photochemical smog formation.
+
+## **📈 LSTM-FCNN Model Architecture**
+### **🔹 LSTM Network (Temporal Analysis)**
+- Learns the long-term trends in **PM2.5 levels**.
+- Maintains memory of previous pollutant fluctuations.
+
+### **🔹 FCNN Network (Spatial Analysis)**
+- Uses **LSTM outputs + neighboring monitoring station data**.
+- Enhances predictions by considering **regional pollution influences**.
+
+### **Mathematical Formulation**
+#### **LSTM Components**
+- **Forget Gate**: Controls irrelevant information.
+- **Input Gate**: Updates pollutant trends.
+- **Cell State Update**: Learns past trends.
+- **Output Gate**: Produces predictions.
+
+\[
+h_t = o_t \odot \tanh(c_t)
+\]
+
+#### **FCNN Formulation**
+\[
+y_t = ReLU(W_2 \cdot ReLU(W_1 \cdot h_t + b_1) + b_2)
+\]
+
+## **⚡ Optimizer Performance Analysis**
+### **Why Optimizer Selection is Crucial**
+The choice of **optimizer** significantly impacts **convergence speed and accuracy**. Multiple optimizers were tested:
+
+| **Optimizer** | **Learning Rate Adaptability** | **Best Use Case** |
+|--------------|------------------------------|-------------------|
+| **Adam**      | Adaptive learning rate      | Balances speed & accuracy |
+| **RMSprop**   | Scales gradient updates     | Works well for time-series |
+| **SGD**       | Fixed learning rate         | Good for simple models |
+| **Adadelta**  | No manual tuning required  | Works well with noisy data |
+| **Adagrad**   | Adapts learning per feature | Best for sparse data |
+| **Adamax**    | Generalization-focused     | Stable training |
+
+### **Final Results: Best Optimizer for LSTM-FCNN**
+| **Model**               | **RMSE**  | **MSE**   | **MAE**  | **MAPE**  |
+|--------------------------|-----------|-----------|-----------|-----------|
+| **LSTM**                 | 28.799    | 829.43    | 18.431    | 48.127    |
+| **FCNN**                 | 27.894    | 786.304   | 17.660    | 46.648    |
+| **LSTM-FCNN (RMSprop)**  | **27.496** | **783.819** | **17.167** | **40.817** |
+
+✅ **RMSprop optimizer yielded the best performance**, minimizing RMSE to **27.496**.  
+✅ **Adam performed well but was slightly slower in convergence**.  
+✅ **SGD struggled due to inconsistent gradient updates in time-series data**.  
+
+## **📌 Future Enhancements**
+📍 **Real-time IoT sensor integration** for live air quality monitoring.  
+📍 **Incorporate Ozone (O3), VOCs, and CO2** for broader air quality forecasting.  
+📍 **Deploy as an API or Web App** for real-time user access.  
 
 # **Why LSTM-FCNN Instead of a Normal Regression Model?**
 
